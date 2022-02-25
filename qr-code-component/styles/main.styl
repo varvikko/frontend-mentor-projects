@@ -1,8 +1,18 @@
-// Coloc scheme
+// Color scheme
 white = hsl(0, 0%, 100%)
 light-gray = hsl(212, 45%, 89%)
 grayish-blue = hsl(220, 15%, 55%)
 dark-blue = hsl(218, 44%, 22%)
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap')
+
+content-width = 20rem
+content-height = content-width
+
+below-mobile()
+  @media screen and (max-width 22em)
+    {block}
 
 *
   margin 0
@@ -13,8 +23,55 @@ body
   background-color light-gray
 
 .page
-  background-color white
-  padding 1rem
-  border-radius .33rem
-  box-shadow 0 0 .5rem 0 #00000022
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  display flex
+  justify-content center
+  align-items center
 
+.card
+  max-width content-width
+  background-color white
+  margin: 1rem
+  padding: 1rem
+  border-radius 1.25em
+  box-shadow 0 0 3rem 2rem #00000016
+
+  +below-mobile()
+    border-radius (1.25 / 0.22)vw
+    padding: .75rem
+
+.code
+  position relative
+  width 100%
+  height 0
+  padding-bottom 100%
+  background-size: contain
+  border-radius .75em
+
+  +below-mobile()
+    border-radius (.75 / 0.22)vw
+
+.card-content
+  font-family Outfit
+  text-align center
+  padding: 1rem
+  padding-top 1.5rem
+
+  .card-title
+    font-size 1.33em
+    font-weight 700
+    color dark-blue
+    line-height 1.4
+    margin-bottom 1rem
+
+    +below-mobile()
+      font-size: 1em
+
+  .card-text
+    font-size 15px
+    font-weight 400
+    color grayish-blue
